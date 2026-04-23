@@ -18,6 +18,9 @@ portfolio-deploy.zip
 # Claude local settings
 .claude/
 
+# Deploy secrets — never commit this
+.env.deploy
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
