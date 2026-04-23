@@ -6,7 +6,7 @@ import motorControllerImg from '../assets/EmbeddedMotorController.png'
 const activeFilter = ref('All')
 const selectedProject = ref(null)
 
-const filters = ['All', 'Machine Learning', 'IoT', 'Robotics', 'Embedded', 'Research']
+const filters = ['All', 'Machine Learning', 'IoT', 'Robotics', 'Embedded', 'Software', 'Research']
 
 const projects = [
   {
@@ -108,6 +108,23 @@ const projects = [
     year: '2023',
     status: 'Club',
     statusColor: 'text-amber-400',
+  },
+  {
+    title: 'Home Server & Productivity Tracker',
+    subtitle: 'Personal Project',
+    description:
+      'Turned a mini PC into an always-on self-hosted server running a productivity and calorie tracking web app, accessible from anywhere in the world via Tailscale VPN — no port forwarding, no cloud.',
+    highlights: [
+      'Zero-dependency Python backend with SQLite — no frameworks',
+      'Systemd service with auto-restart on crash or reboot',
+      'Global access via Tailscale encrypted VPN with MagicDNS',
+      'Focus timer, task manager, calorie tracker & 14-day stats',
+    ],
+    technologies: ['Python', 'SQLite', 'Linux', 'Tailscale', 'Systemd', 'Vanilla JS'],
+    categories: ['Software', 'IoT'],
+    year: '2025',
+    status: 'Personal',
+    statusColor: 'text-cyan-400',
   },
   {
     title: 'Visual Place Recognition',
