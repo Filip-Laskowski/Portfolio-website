@@ -314,18 +314,20 @@ watch(selectedProject, (val) => {
           </button>
 
           <!-- Images (multi) -->
-          <div v-if="selectedProject.images" class="p-6 pb-0 space-y-4">
-            <div v-for="img in selectedProject.images" :key="img.src">
-              <div class="rounded-xl overflow-hidden bg-white p-4 sm:p-6">
-                <img
-                  :src="img.src"
-                  :alt="img.caption"
-                  class="w-full object-contain max-h-[40vh]"
-                />
+          <div v-if="selectedProject.images" class="p-6 pb-0">
+            <div class="grid grid-cols-2 gap-3">
+              <div v-for="img in selectedProject.images" :key="img.src" class="flex flex-col gap-2">
+                <div class="rounded-xl overflow-hidden bg-base">
+                  <img
+                    :src="img.src"
+                    :alt="img.caption"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <p v-if="img.caption" class="text-xs text-muted text-center italic">
+                  {{ img.caption }}
+                </p>
               </div>
-              <p v-if="img.caption" class="text-xs text-muted mt-2 text-center italic">
-                {{ img.caption }}
-              </p>
             </div>
           </div>
 
