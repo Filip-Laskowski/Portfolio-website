@@ -2,6 +2,8 @@
 import { ref, computed, watch } from 'vue'
 import adjustedUmfImg from '../assets/AdjustedUMF.png'
 import motorControllerImg from '../assets/EmbeddedMotorController.png'
+import productivityAppImg from '../assets/productivityApp.png'
+import productivityAppTasksImg from '../assets/productivityAppTasks.png'
 
 const activeFilter = ref('All')
 const selectedProject = ref(null)
@@ -125,6 +127,11 @@ const projects = [
     year: '2025',
     status: 'Personal',
     statusColor: 'text-cyan-400',
+    image: productivityAppImg,
+    images: [
+      { src: productivityAppImg, caption: 'Focus timer & calorie tracker dashboard' },
+      { src: productivityAppTasksImg, caption: 'Task manager with priority and category tags' },
+    ],
   },
   {
     title: 'Visual Place Recognition',
@@ -306,8 +313,24 @@ watch(selectedProject, (val) => {
             </svg>
           </button>
 
-          <!-- Image -->
-          <div v-if="selectedProject.image" class="p-6 pb-0">
+          <!-- Images (multi) -->
+          <div v-if="selectedProject.images" class="p-6 pb-0 space-y-4">
+            <div v-for="img in selectedProject.images" :key="img.src">
+              <div class="rounded-xl overflow-hidden bg-white p-4 sm:p-6">
+                <img
+                  :src="img.src"
+                  :alt="img.caption"
+                  class="w-full object-contain max-h-[40vh]"
+                />
+              </div>
+              <p v-if="img.caption" class="text-xs text-muted mt-2 text-center italic">
+                {{ img.caption }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Image (single) -->
+          <div v-else-if="selectedProject.image" class="p-6 pb-0">
             <div class="rounded-xl overflow-hidden bg-white p-4 sm:p-6">
               <img
                 :src="selectedProject.image"
