@@ -1,7 +1,7 @@
 <script setup>
 const experiences = [
   {
-    role: 'Software Engineer',
+    role: 'IoT Engineer',
     company: 'Leakster',
     description: 'Developing full-stack IoT platforms for industrial leak detection systems.',
     period: 'Oct 2023 — Present',
